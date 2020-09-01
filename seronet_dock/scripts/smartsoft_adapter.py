@@ -19,38 +19,40 @@ class SmartsoftAdapter(object):
 
 
     def dock_callback(self, msg):
-        print "docking"
+        print ("docking to {}".format(msg.data))
         message = String()
         if not self.ac_dock_.wait_for_server(rospy.Duration(1)):
             message.data = 'WARN: Dock not available'
             self.pub_dock_result_.publish(message)
             return
         goal = SetStringGoal()
+        goal.data = msg.data
         goal_state = self.ac_dock_.send_goal_and_wait(goal)
         if goal_state == GoalStatus.SUCCEEDED:
             message.data = 'INFO: Dock successful'
         else:
             message.data = 'WARN: Dock failed'
 
-        print message.data
+        print (message.data)
         self.pub_dock_result_.publish(message)
         return
 
     def undock_callback(self, msg):
-        print "undocking"
+        print ("undocking from {}".format(msg.data))
         message = String()
         if not self.ac_undock_.wait_for_server(rospy.Duration(1)):
             message.data = 'WARN: Undock not available'
             self.pub_undock_result_.publish(message)
             return
         goal = SetStringGoal()
+        goal.data = msg.data
         goal_state = self.ac_undock_.send_goal_and_wait(goal)
         if goal_state == GoalStatus.SUCCEEDED:
             message.data = 'INFO: Undock successful'
         else:
             message.data = 'WARN: Undock failed'
 
-        print message.data
+        print (message.data)
         self.pub_undock_result_.publish(message)
         return
 
