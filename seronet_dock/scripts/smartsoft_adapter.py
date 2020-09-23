@@ -59,5 +59,5 @@ class SmartsoftAdapter(object):
 if __name__ == '__main__':
     rospy.init_node('docking_smartsoft_adapter')
     SmartsoftAdapter()
-    print "docking_smartsoft_adapter started"
+    rospy.loginfo("docking_smartsoft_adapter started")
     rospy.spin()
