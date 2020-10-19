@@ -1,0 +1,25 @@
+- git:
+    local-name: cob_command_tools
+    uri: git@github.com:ipa320/cob_command_tools
+    version: indigo_dev
+- git:
+    local-name: cob_common
+    uri: git@github.com:ipa320/cob_common
+    version: kinetic_dev
+- git:
+    local-name: cob_control
+    uri: git@github.com:ipa320/cob_control
+    version: kinetic_dev
+- git:
+    local-name: cob_driver
+    uri: git@github.com:ipa320/cob_driver
+    version: kinetic_dev
+- git:
+    local-name: cob_robots
+    uri: git@github.com:ipa320/cob_robots
+    version: kinetic_dev
+- git:
+    local-name: cob_docking
+    uri: git@github.com:ipa320/cob_docking
+    version: indigo_dev
+
