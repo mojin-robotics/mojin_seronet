@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>seronet_dock</name>
+  <version>0.0.1</version>
+  <description>Autonomous docking adapter for SeRoNet</description>
+
+  <license>public</license>
+
+  <maintainer email="hannes.bachter@mojin-robotics.de">Hannes Bachter</maintainer>
+  <author email="hannes.bachter@mojin-robotics.de">Hannes Bachter</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>actionlib</exec_depend>
+  <exec_depend>actionlib_msgs</exec_depend>
+  <exec_depend>cob_actions</exec_depend>
+  <exec_depend>cob_docker_control</exec_depend>
+  <exec_depend>cob_hardware_config</exec_depend>
+  <exec_depend>cob_linear_nav</exec_depend>
+  <exec_depend>cob_msgs</exec_depend>
+  <exec_depend>cob_reflector_referencing</exec_depend>
+  <exec_depend>laser_filters</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <test_depend>roslaunch</test_depend>
+
+</package>

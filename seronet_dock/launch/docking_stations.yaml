@@ -1,0 +1,16 @@
+stations:
+- frame_id: station_charger
+  reflector_distance: 0.28
+  approach_poses: [[-0.76, 0.0, 0.0], [-0.56, 0.0, 0.0], [-0.47, 0.0, 0.0]] # in frame_id coords
+  departure_poses: [[-0.8, 0.0, 0.0]]
+  stop_condition:
+    topic: '/power_state_seronet'
+    message_field: 'charging'
+    compare_value: True
+
+distance_tolerance: 0.1
+intensity_lower_threshold: 200
+intensity_upper_threshold: 10000
+update_rate: 0.25
+dock_dist_threshold: 0.15
+undock_dist_threshold: 1.0
