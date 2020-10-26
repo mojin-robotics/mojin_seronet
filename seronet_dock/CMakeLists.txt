@@ -16,3 +16,13 @@ catkin_install_python(PROGRAMS
 install(DIRECTORY launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
+
+if(CATKIN_ENABLE_TESTING)
+  set(robotlist
+    cob4
+  )
+  find_package(roslaunch REQUIRED)
+  foreach(robot ${robotlist})
+    roslaunch_add_file_check(launch/seronet_dock.launch ROBOT=${robot})
+  endforeach()
+endif()
