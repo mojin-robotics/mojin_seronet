@@ -14,9 +14,12 @@
   <exec_depend>actionlib</exec_depend>
   <exec_depend>actionlib_msgs</exec_depend>
   <exec_depend>cob_actions</exec_depend>
-  <exec_depend>cob_bringup</exec_depend>
+  <exec_depend>cob_docker_control</exec_depend>
+  <exec_depend>cob_hardware_config</exec_depend>
+  <exec_depend>cob_linear_nav</exec_depend>
+  <exec_depend>cob_reflector_referencing</exec_depend>
+  <exec_depend>laser_filters</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
-
 
 </package>
