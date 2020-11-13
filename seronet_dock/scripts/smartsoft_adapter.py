@@ -4,7 +4,7 @@ import actionlib
 import rospy
 
 from actionlib_msgs.msg import GoalStatus
-from cob_actions.msg import SetStringAction, SetStringGoal
+from cob_actions.msg import DockAction, DockGoal
 from cob_msgs.msg import PowerState
 from std_msgs.msg import String, Bool
 
@@ -18,8 +18,8 @@ class SmartsoftAdapter(object):
         self.pub_undock_result_ = rospy.Publisher('/docker_control/undock_seronet/result', String, queue_size=1)
         self.pub_power_state_   = rospy.Publisher('/power_state_seronet', PowerState, queue_size=1)
 
-        self.ac_dock_   = actionlib.SimpleActionClient('/docker_control/dock', SetStringAction)
-        self.ac_undock_ = actionlib.SimpleActionClient('/docker_control/undock', SetStringAction)
+        self.ac_dock_   = actionlib.SimpleActionClient('/docker_control/dock_poses', DockAction)
+        self.ac_undock_ = actionlib.SimpleActionClient('/docker_control/undock_poses', DockAction)
 
 
     def dock_callback(self, msg):
@@ -29,8 +29,8 @@ class SmartsoftAdapter(object):
             message.data = 'WARN: Dock not available'
             self.pub_dock_result_.publish(message)
             return
-        goal = SetStringGoal()
-        goal.data = msg.data
+        goal = DockGoal()
+        goal.frame_id = msg.data
         goal_state = self.ac_dock_.send_goal_and_wait(goal)
         if goal_state == GoalStatus.SUCCEEDED:
             message.data = 'INFO: Dock successful'
@@ -48,8 +48,8 @@ class SmartsoftAdapter(object):
             message.data = 'WARN: Undock not available'
             self.pub_undock_result_.publish(message)
             return
-        goal = SetStringGoal()
-        goal.data = msg.data
+        goal = DockGoal()
+        goal.frame_id = msg.data
         goal_state = self.ac_undock_.send_goal_and_wait(goal)
         if goal_state == GoalStatus.SUCCEEDED:
             message.data = 'INFO: Undock successful'
